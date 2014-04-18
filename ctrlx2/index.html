@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.7/angular.js" data-semver="1.2.7"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="Controller1">
+    <h1>Controller 1</h1>
+    <ul ng-repeat="msg1 in messages1 track by msg1.id">
+        <li>{{msg1.text}}</li>
+    </ul>
+    <p>
+        Controller 1 Message: <input type="text" ng-model="text">
+        <button ng-click="postMessage()">Post</button>
+    </p>
+</div>
+<p></p>
+<div ng-controller="Controller2">
+    <h1>Controller 2</h1>
+    <ul ng-repeat="msg2 in messages2 track by msg2.id">
+        <li>{{msg2.text}}</li>
+    </ul>
+    <p>
+        Controller 1 Message: <input type="text" ng-model="text">
+        <button ng-click="postMessage()">Post</button>
+    </p>
+</div>
+</body>
+
+</html>
