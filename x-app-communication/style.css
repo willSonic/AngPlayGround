@@ -1,0 +1,145 @@
+
+/*
+	Variable Grid System (Fluid Version).
+	Learn more ~ http://www.spry-soft.com/grids/
+	Based on 960 Grid System - http://960.gs/ & 960 Fluid - http://www.designinfluences.com/
+
+	Licensed under GPL and MIT.
+*/
+
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+.container_12 {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+    display:inline;
+    float: left;
+    position: relative;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+    margin-left: 0;
+}
+
+.omega {
+    margin-right: 0;
+}
+
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container_12 .grid_1 {
+    width:6.333%;
+}
+
+.container_12 .grid_2 {
+    width:14.667%;
+}
+
+.container_12 .grid_3 {
+    width:23.0%;
+}
+
+.container_12 .grid_4 {
+    width:31.333%;
+}
+
+.container_12 .grid_5 {
+    width:39.667%;
+}
+
+.container_12 .grid_6 {
+    width:48.0%;
+}
+
+.container_12 .grid_7 {
+    width:56.333%;
+}
+
+.container_12 .grid_8 {
+    width:64.667%;
+}
+
+.container_12 .grid_9 {
+    width:73.0%;
+}
+
+.container_12 .grid_10 {
+    width:81.333%;
+}
+
+.container_12 .grid_11 {
+    width:89.667%;
+}
+
+.container_12 .grid_12 {
+    width:98.0%;
+}
+
+body{
+
+    height: 100%;
+    max-height:100%;
+    overflow: auto;
+    background: lightgrey;
+}
+
+
+article {
+    overflow-y: auto;
+}
+article,
+body,
+html,
+.off-canvas-wrap,
+.off-canvas-wrap .inner-wrap,
+.row {
+    height: 100%;
+    width: 100%;
+}
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+.center-board{
+    display:block;
+    height:100%;
+    background-color:whitesmoke;
+}
+.board-canvas{
+    display:block;
+    margin-top: 50px;
+    height:100%;
+    background-color: lightsteelblue;
+    min-height:550px;
+}
+.footer-space{
+    background-color: steelblue;
+}
