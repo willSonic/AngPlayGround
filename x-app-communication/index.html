@@ -1,68 +1,137 @@
 <!doctype html>
-<html ng-app="myApp">
+<html ng-app="nocSonic">
     <head>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/5.2.2/css/foundation.min.css">
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script type='text/javascript'  src="https://cdn.jsdelivr.net/foundation/5.2.2/js/vendor/jquery.js"></script>
         <script type='text/javascript'  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.js"></script>
     </head>
-     <body ng-app="myApp">
-        <div class="container_12">
+     <body>
+     <div class="container_12">
+         <div class="grid_12">
+             <div class="off-canvas-wrap">
+                 <div class="inner-wrap">
+                     <div class="header">
+                         <nav class="tab-bar" data-topbar data-options="is_hover: false">
+                             <section class="left-small">
+                                 <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+                             </section>
+                             <section class="right tab-bar-section">
+                                 <h1>Foundation 5 test</h1>
+                             </section>
+                             <section class="right-small">
+                                 <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                             </section>
+                         </nav>
+                     </div>
+                     <aside class="left-off-canvas-menu">
+                         <ul class="off-canvas-list">
+                             <li>
+                                 <label> MY DASHBOARD</label>
+                             </li>
+                             <li><a href="#">PLay This</a>
 
-            <div class="grid_12">
-                <div class="off-canvas-wrap">
-                    <div class="inner-wrap">
-                        <div class="header">
-                            <nav class="tab-bar" data-topbar data-options="is_hover: false">
-                                <section class="left-small">
-                                    <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-                                </section>
-                                <section class="right tab-bar-section">
-                                    <h1>Foundation 5 test</h1>
-                                </section>
-                                <section class="right-small">
-                                    <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-                                </section>
-                            </nav>
-                        </div>
-                        <aside class="left-off-canvas-menu">
-                            <ul class="off-canvas-list">
-                                <li>
-                                    <label> MY DASHBOARD</label>
-                                </li>
-                                <li><a href="#">PLay This</a>
+                             </li>
+                         </ul>
+                     </aside>
+                     <aside class="right-off-canvas-menu"  ng-controller="DiscoveryController">
+                         <h4><span class="label label-default right-menu"> MY DASHBOARD</span></h4>
+                         <div class="right-menu">
+                             <div class="col-sm-12">
+                                 <h6><span class="label label-default">{{mydata.Origin}}</span></h6>
+                                 <h6><span class="label label-default">{{mydata.Use}}</span></h6>
+                             </div>
+                             <div class="col-sm-12">
+                                 <button class="btn btn-block" ng-click="onEdit(mydata)">Edit</button>
+                             </div>
+                         </div>
+                     </aside>
 
-                                </li>
-                            </ul>
-                        </aside>
-                        <aside class="right-off-canvas-menu">
-                            <ul class="off-canvas-list">
-                                <li><label>User ProFile</label></li>
-                            </ul>
-                        </aside>
+                     <div class="container_12 center-board">
+                         <div class="grid_12 board-canvas" ng-controller="MenuController">
+                             <h2>Hop Listing</h2>
+                             <table class="table table-bordered">
+                                 <thead>
+                                 <th></th>
+                                 <th>Name</th>
+                                 <th>Origin</th>
+                                 <th>Use</th>
+                                 <th>Notes</th>
+                                 <th>Alpha</th>
+                                 </thead>
+                                 <tr ng-repeat="hop in hops | limitTo:5">
+                                     <td><button class="btn btn-block" ng-click="onEdit(hop)">Edit</button><button class="btn btn-block" ng-click="onDelete(hop)">Delete</button></td>
+                                     <td>{{hop.Name}}</td>
+                                     <td>{{hop.Origin}}</td>
+                                     <td>{{hop.Use}}</td>
+                                     <td>{{hop.Notes}}</td>
+                                     <td>{{hop.Alpha}}</td>
+                                 </tr>
+                             </table>
+                         </div>
+                     </div>
+                 </div>
 
-                        <div class="container_12 center-board">
-                              <div class="grid_12 board-canvas">
-                                  <h1>Canvas With Something On it</h1>
+                 <a class="exit-off-canvas"></a>
 
-                              </div>
-                        </div>
+                 <footer class="container_12 footer-space">
+                     <h2>Edit Hop Detail</h2>
+                     <div class="grid_12 footer-space" ng-controller="PlayerController"  ng-show="hop">
+                             <form class="form-horizontal" name="hopForm">
+                                 <div class="control-group">
+                                     <label class="control-label" for="Name">
+                                         <div class="controls">
+                                             <input type="text" id="Name" name="Name" class="input-large" ng-model="hop.Name">
+                                         </div>
+                                     </label>
+                                 </div>
+                                 <div class="control-group">
+                                     <label class="control-label" for="Origin">
+                                         <div class="controls">
+                                             <input type="text" id="Origin" name="Origin" class="input-large" ng-model="hop.Origin">
+                                         </div>
+                                     </label>
+                                 </div>
+                                 <div class="control-group">
+                                     <label class="control-label" for="Use">
+                                         <div class="controls">
+                                             <input type="text" id="Use" name="Use" class="input-large" ng-model="hop.Use">
+                                         </div>
+                                     </label>
+                                 </div>
+                                 <div class="control-group">
+                                     <label class="control-label" for="Notes">
+                                         <div class="controls">
+                                             <textarea id="Notes" name="Notes" class="input-large" rows="6" ng-model="hop.Notes"></textarea>
+                                         </div>
+                                     </label>
+                                 </div>
+                                 <div class="control-group">
+                                     <label class="control-label" for="Alhpa">
+                                         <div class="controls">
+                                             <input type="text" id="Alpha" name="Alpha" class="input-large" ng-model="hop.Alpha">
+                                         </div>
+                                     </label>
+                                 </div>
+                                 <div class="control-group">
+                                     <button class="btn btn-primary" ng-click="onSave()">Save</button> <button class="btn btn-warning" ng-click="onCancel()">Cancel</button>
+                                 </div>
+                             </form>
+                         </div>
+                 </footer>
+                 </div>
+             </div>
+         </div>
+          <script type='text/javascript'  src="https:///netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+          <script type='text/javascript'  src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+          <script type='text/javascript'  src="https://cdn.jsdelivr.net/foundation/5.2.2/js/foundation.min.js"></script>
 
-                        <a class="exit-off-canvas"></a>
-
-                        <footer class="container_12 footer-space">
-                            <div class="grid_12 footer-space">
-                                <h1>Fixed Player</h1>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <script type='text/javascript'  src="https://cdn.jsdelivr.net/foundation/5.2.2/js/vendor/jquery.js"></script>
-        <script type='text/javascript ' src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
-        <script type='text/javascript'  src="https://cdn.jsdelivr.net/foundation/5.2.2/js/foundation.min.js"></script>
-        <script src="app.js"></script>
+         <script src="app.js"></script>
+         <script src="services/audioconsumer.js"></script>
+         <script src="controllers/DiscoveryController.js"></script>
+         <script src="controllers/MenuController.js"></script>
+         <script src="controllers/PlayerController.js"></script>
     </body>
 
 </html>

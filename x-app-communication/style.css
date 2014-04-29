@@ -117,11 +117,17 @@ article,
 body,
 html,
 .off-canvas-wrap,
-.off-canvas-wrap .inner-wrap,
-.row {
+.off-canvas-wrap .inner-wrap {
     height: 100%;
     width: 100%;
 }
+.right-menu{
+    width: 100%;
+    margin-left:2%;
+    margin-right:2%;
+
+}
+
 .header {
     position: absolute;
     top: 0;

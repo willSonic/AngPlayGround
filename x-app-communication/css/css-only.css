@@ -1,0 +1,135 @@
+/**
+ **
+ ** Based on Chris Coyier "Off Canvas Menu with CSS :target" - http://css-tricks.com/off-canvas-menu-with-css-target/
+ **
+ **/
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+* {
+    box-sizing: border-box;
+}
+
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main-header {
+    color: white;
+    background: #4C4C4C;
+    height: 65px;
+    padding: 12px 5px 5px 70px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+}
+.main-header a {
+    position: absolute;
+    left: 20px;
+    top: 7px;
+    color: white;
+    font-size: 32px;
+}
+.main-header h1 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.page-wrap {
+    float: right;
+    width: 100%;
+    transition: width 0.4s ease;
+}
+
+.right-nav {
+    position: fixed;
+    top: 65px;
+    width: 0;
+    height: 100%;
+    background: #272727;
+    overflow-y: auto;
+    transition: width 0.4s ease;
+}
+
+.left-nav {
+     position: fixed;
+     top: 65px;
+     width: 0;
+     height: 100%;
+     background: #272727;
+     overflow-y: auto;
+     transition: width 0.4s ease;
+ }
+.right-nav .icon {
+    display: inline-block;
+    padding-right: .5em;
+}
+.left-nav .icon {
+    display: inline-block;
+    padding-right: .5em;
+}
+.right-nav a {
+    display: block;
+    color: white;
+    white-space: nowrap;
+    margin-left: -3.5em;
+    padding: 15px;
+    border-top: 1px solid #484848;
+    border-bottom: 1px solid #2E2E2E;
+    transition: margin 0.5s ease;
+}
+.left-nav a {
+    display: block;
+    color: white;
+    white-space: nowrap;
+    margin-right: -3.5em;
+    padding: 15px;
+    border-top: 1px solid #484848;
+    border-bottom: 1px solid #2E2E2E;
+    transition: margin 0.5s ease;
+}
+.left-nav a:hover, .left-nav a:focus,
+.right-nav a:hover, .right-nav a:focus {
+    background: #7AB800;
+}
+
+.content {
+    padding: 90px 20px 20px 20px;
+}
+
+.close-menu {
+    display: none;
+}
+
+#left-nav:target,
+#right-nav:target {
+    width: 20%;
+}
+
+#left-nav:target a{
+    margin-left: 0;
+}
+#right-nav:target a {
+    margin-left: 0;
+}
+#left-nav:target ~ .page-wrap,
+#right-nav:target ~ .page-wrap {
+    width: 80%;
+}
+
+#left-nave:target ~ .main-header .open-menu,
+#right-nav:target ~ .main-header .open-menu {
+    display: none;
+}
+
+#left-nave:target ~ .main-header .close-menu,
+#right-nav:target ~ .main-header .close-menu {
+    display: block;
+}
