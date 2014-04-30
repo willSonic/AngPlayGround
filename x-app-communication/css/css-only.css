@@ -30,7 +30,16 @@ a {
     width: 100%;
     left: 0;
 }
-.main-header a {
+
+.right-anchor {
+    position: absolute;
+    right: 100px;
+    top: 7px;
+    color: white;
+    font-size: 32px;
+}
+
+.left-anchor{
     position: absolute;
     left: 20px;
     top: 7px;
@@ -42,15 +51,17 @@ a {
     font-weight: normal;
 }
 
-.page-wrap {
+.page-wrap{
     float: right;
     width: 100%;
     transition: width 0.4s ease;
 }
 
+
 .right-nav {
     position: fixed;
     top: 65px;
+    right: 0px;
     width: 0;
     height: 100%;
     background: #272727;
@@ -67,35 +78,43 @@ a {
      overflow-y: auto;
      transition: width 0.4s ease;
  }
+
 .right-nav .icon {
     display: inline-block;
-    padding-right: .5em;
+    padding-left: .5em;
 }
+
 .left-nav .icon {
     display: inline-block;
     padding-right: .5em;
 }
+
 .right-nav a {
     display: block;
     color: white;
     white-space: nowrap;
-    margin-left: -3.5em;
+    margin-left: 3.5em;
     padding: 15px;
     border-top: 1px solid #484848;
     border-bottom: 1px solid #2E2E2E;
     transition: margin 0.5s ease;
 }
+
 .left-nav a {
     display: block;
     color: white;
     white-space: nowrap;
-    margin-right: -3.5em;
+    margin-right: 3.5em;
     padding: 15px;
     border-top: 1px solid #484848;
     border-bottom: 1px solid #2E2E2E;
     transition: margin 0.5s ease;
 }
-.left-nav a:hover, .left-nav a:focus,
+
+.left-nav a:hover, .left-nav a:focus{
+    background: #7AB800;
+}
+
 .right-nav a:hover, .right-nav a:focus {
     background: #7AB800;
 }
@@ -104,11 +123,17 @@ a {
     padding: 90px 20px 20px 20px;
 }
 
-.close-menu {
+.right-close-menu {
     display: none;
 }
 
-#left-nav:target,
+.left-close-menu {
+    display: none;
+}
+#left-nav:target{
+    width: 20%;
+}
+
 #right-nav:target {
     width: 20%;
 }
@@ -116,20 +141,48 @@ a {
 #left-nav:target a{
     margin-left: 0;
 }
+
 #right-nav:target a {
-    margin-left: 0;
+    margin-right: 0;
 }
-#left-nav:target ~ .page-wrap,
-#right-nav:target ~ .page-wrap {
+#left-nav:target ~ .page-wrap{
+    float: right;
     width: 80%;
+    transition: width 0.4s ease;
 }
 
-#left-nave:target ~ .main-header .open-menu,
-#right-nav:target ~ .main-header .open-menu {
+#right-nav:target ~ .page-wrap {
+    float: left;
+    width: 80%;
+    transition: width 0.4s ease;
+}
+
+
+#right-nav:target ~ .main-header .right-open-menu {
     display: none;
 }
 
-#left-nave:target ~ .main-header .close-menu,
-#right-nav:target ~ .main-header .close-menu {
+
+#right-nav:target ~ .main-header .right-close-menu {
     display: block;
+    position: absolute;
+    right: 100px;
+    top: 7px;
+    color: white;
+    font-size: 32px;
 }
+
+
+#left-nav:target ~ .main-header .left-open-menu{
+    display: none;
+}
+
+#left-nav:target ~ .main-header .left-close-menu{
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 7px;
+    color: white;
+    font-size: 32px;
+}
+
