@@ -90,14 +90,15 @@ a {
 }
 
 .right-nav a {
+    border-bottom: 1px solid #2E2E2E;
+    border-top: 1px solid #484848;
+    color: #FFFFFF;
     display: block;
-    color: white;
-    white-space: nowrap;
     margin-left: 3.5em;
     padding: 15px;
-    border-top: 1px solid #484848;
-    border-bottom: 1px solid #2E2E2E;
-    transition: margin 0.5s ease;
+    text-align: right;
+    transition: margin 0.5s ease 0s;
+    white-space: nowrap;
 }
 
 .left-nav a {
